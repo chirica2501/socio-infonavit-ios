@@ -9,7 +9,7 @@
 import Foundation
 
 class LoginRouter {
-    
+
     static func postLogin(email: String, password: String, compilation : @escaping (_ success: Bool,_ error: Error?) -> Void) {
         let user = User.shared
         let url = String(format: "https://staging.api.socioinfonavit.io/api/v1/login")
@@ -42,6 +42,26 @@ class LoginRouter {
                 }
             }
             }.resume()
+    }
+    
+    static func deleteLogout(compilation : @escaping (_ status: Bool,_ error: Error?) -> Void) {
+        guard let jsonUrlString = URL(string: "https://staging.api.socioinfonavit.io/api/v1/logout") else { return }
+        var url = URLRequest(url: jsonUrlString)
+        
+        url.httpMethod = "DELETE"
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let response = response {
+                if let httpResponse = response as? HTTPURLResponse {
+                    if httpResponse.statusCode == 200 { //Since the user is not registered change the logic operation
+                        compilation(true, nil)
+                    }
+                    else { compilation(false, nil) }
+                }
+                else if let error = error {
+                    compilation(false, error)
+                }
+            }
+        }.resume()
     }
 }
 //gerardo@nextia.mx

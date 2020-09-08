@@ -236,6 +236,9 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VqY-j0-dfU">
                                 <rect key="frame" x="0.0" y="56" width="414" height="752"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="dataSource" destination="u01-hk-cht" id="NR0-v4-fqm"/>
                                     <outlet property="delegate" destination="u01-hk-cht" id="JxK-U9-V1N"/>
@@ -251,7 +254,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BT1-pO-dCU"/>
                     </view>
-                    <navigationItem key="navigationItem" id="vKQ-jm-xN9"/>
+                    <navigationItem key="navigationItem" id="vKQ-jm-xN9">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="GcG-ci-Wyh">
+                            <connections>
+                                <action selector="addTapped" destination="u01-hk-cht" id="apc-ph-n8f"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableCartera" destination="VqY-j0-dfU" id="SJA-Tq-cVo"/>
                         <outlet property="view" destination="Z93-jz-0mW" id="oVO-oy-VeH"/>

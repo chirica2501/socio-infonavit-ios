@@ -11,11 +11,19 @@ import UIKit
 class LockedCell: UICollectionViewCell {
 
     static let nameCell = "LockedCell"
+    @IBOutlet weak var imageLocked: UIImageView!
+    @IBOutlet weak var iWantButton: UIButton!
+    @IBOutlet weak var background: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.backgroundColor = UIColor.red
-        // Initialization code
+        setupUI()
     }
 
+    func setupUI() {
+        self.backgroundColor = UIColor.red
+        iWantButton.layer.cornerRadius = 5
+        iWantButton.backgroundColor = UIColor(red: 236/255, green: 80/255, blue: 86/255, alpha: 1.0)
+        iWantButton.setTitleColor(UIColor.white, for: .normal)
+    }
 }

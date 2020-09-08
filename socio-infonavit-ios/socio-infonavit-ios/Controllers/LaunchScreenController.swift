@@ -16,10 +16,10 @@ class LaunchScreenController: UIViewController {
         super.viewDidLoad()
         activityIndicator.transform = CGAffineTransform(scaleX: 2.5, y: 2.5)
         self.activityIndicator.isHidden = true
-        Timer.scheduledTimer(withTimeInterval: 0.0, repeats: false, block: { (t) in
+        Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false, block: { (t) in
             self.activityIndicator.isHidden = false
             self.activityIndicator.startAnimating()
-            Timer.scheduledTimer(withTimeInterval: 0.0, repeats: false, block: { (t) in
+            Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false, block: { (t) in
                 self.activityIndicator.isHidden = true
                 self.activityIndicator.stopAnimating()
                 self.performSegue(withIdentifier: "toLogin", sender: nil)

@@ -11,6 +11,10 @@ import UIKit
 class UnlockedCell: UICollectionViewCell {
 
     static let nameCell = "UnlockedCell"
+    @IBOutlet weak var imageUnlocked: UIImageView!
+    @IBOutlet weak var descriptionTitle: UILabel!
+    @IBOutlet weak var territories: UILabel!
+    @IBOutlet weak var background: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
